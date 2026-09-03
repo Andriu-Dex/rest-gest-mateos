@@ -87,13 +87,15 @@ npm run lint
 npm run test
 ```
 
-Estos mismos comandos se ejecutan automáticamente mediante GitHub Actions en cada `push` a `main` o `develop` y en pull requests dirigidos a cualquiera de esas ramas. Las pruebas unitarias actuales no necesitan PostgreSQL; por ello, CI no inicia un service container innecesario. La URL de base configurada en CI se utiliza únicamente para generar Prisma durante el build y no contiene secretos.
+Estos mismos comandos se ejecutan automáticamente mediante GitHub Actions en cada `push` a `main` o `develop` y en pull requests dirigidos a cualquiera de esas ramas. CI también levanta un service container efímero PostgreSQL 18 y ejecuta la prueba E2E de infraestructura.
 
 Las pruebas end-to-end de la API requieren PostgreSQL y `DATABASE_URL`:
 
 ```bash
-npm run test:e2e --workspace api
+npm run test:e2e
 ```
+
+La prueba inicia NestJS dentro del proceso de pruebas y consulta `GET /api/health`. El endpoint ejecuta `SELECT 1` mediante Prisma, por lo que PostgreSQL debe estar disponible y `DATABASE_URL` debe apuntar a esa instancia.
 
 ## Prisma
 
