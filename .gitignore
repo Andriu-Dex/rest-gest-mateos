@@ -1,0 +1,74 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.nav
+*.nlo
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+
+# Beamer / paquetes adicionales
+*.acn
+*.acr
+*.alg
+*.glsdefs
+*.lol
+*.maf
+*.mtc
+*.mtc0
+*.pyg
+*.pygtex
+
+# latexmk
+*.fdb_latexmk
+*.fls
+
+# Archivos temporales
+*.tmp
+*.bak
+*.backup
+*~
+*.swp
+*.swo
+
+# Directorios de compilación
+build/
+out/
+
+# minted
+_minted-*/
+
+# Archivos generados por editores
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Opcional: ignorar el PDF compilado
+# *.pdf
+*.txt

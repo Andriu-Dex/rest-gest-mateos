@@ -1,0 +1,811 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{mathptmx}
+\usepackage[a4paper,top=4.15cm,bottom=2.5cm,left=2.3cm,right=2.3cm,headheight=2.75cm,headsep=0.55cm,footskip=1.0cm]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{calc}
+\usepackage{rotating}
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage{setspace}
+\usepackage{pdflscape}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{headergray}{gray}{0.93}
+\definecolor{tableheader}{gray}{0.86}
+\definecolor{bordergray}{gray}{0.50}
+\definecolor{phaseblue}{RGB}{218,232,252}
+\definecolor{phasegreen}{RGB}{217,234,211}
+\definecolor{phaseorange}{RGB}{252,229,205}
+
+\setlist[itemize]{leftmargin=1.2cm,topsep=3pt,itemsep=3pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=1.2cm,topsep=3pt,itemsep=3pt,parsep=0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
+\setstretch{1.12}
+
+\titleformat{\section}{\fontsize{12}{14}\bfseries\uppercase}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titleformat{\subsection}{\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titleformat{\subsubsection}{\fontsize{11.5}{13}\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{8pt}{3pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{%
+  \setlength{\tabcolsep}{4pt}%
+  \begin{tabular}{|>{\centering\arraybackslash}m{2.1cm}|>{\centering\arraybackslash\fontsize{8.2pt}{9.6pt}\selectfont}m{8.4cm}|>{\fontsize{7.7pt}{9.2pt}\selectfont\arraybackslash}m{4.45cm}|}
+    \hline
+    \IfFileExists{logo_restgest.png}{%
+      \includegraphics[width=1.75cm,height=1.75cm,keepaspectratio]{logo_restgest.png}%
+    }{%
+      \fbox{\parbox[c][1.55cm][c]{1.55cm}{\centering\fontsize{20}{22}\selectfont\bfseries RG}}%
+    }
+    &
+    \textbf{RESTAURANTE MATEOS}\par
+    \textbf{PROYECTO: RESTGEST MATEOS}\par\vspace{1pt}
+    \textbf{PROCESO:} PLANIFICACIÓN Y ANÁLISIS DE REQUISITOS\par\vspace{1pt}
+    Informe de Planificación del Proyecto
+    &
+    \textbf{CÓDIGO:} PA-PPR-INF-001\par\vspace{1pt}
+    \textbf{VERSIÓN:} 1.0\par\vspace{1pt}
+    \textbf{ELABORACIÓN:} 26/08/2026\par\vspace{1pt}
+    \textbf{ÚLTIMA REVISIÓN:} 26/08/2026\par\vspace{1pt}
+    \textbf{PÁGINA:} \thepage/\pageref{LastPage}
+    \tabularnewline
+    \hline
+  \end{tabular}%
+}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\doccode}{PA-PPR-INF-001}
+
+\begin{document}
+\setcounter{page}{1}
+
+\begin{center}
+{\Large\bfseries INFORME DE PLANIFICACIÓN DEL PROYECTO RESTGEST MATEOS}\\[4pt]
+{\large Sistema web para la gestión operativa y apoyo a la toma de decisiones en Restaurante Mateos}\\[6pt]
+\textbf{Código documental: \doccode \quad -- \quad Versión 1.0}\\
+\textbf{Línea base temporal: 12/08/2026 -- 04/11/2026}
+\end{center}
+
+\section{Título}
+
+\textbf{Informe de Planificación del Proyecto RestGest Mateos.}
+
+El documento se identifica mediante el código \textbf{\doccode}. La codificación empleada sigue la estructura
+\textbf{XX-YYY-ZZZ-001}: \textbf{PA} corresponde a la fase de Planificación y Análisis de Requisitos; 
+\textbf{PPR} identifica el subproceso de Planificación del Proyecto; \textbf{INF} corresponde al tipo documental 
+Informe; y \textbf{001} indica que se trata del primer informe de esta combinación de fase, actividad y tipo documental.
+
+\section{Introducción}
+
+RestGest Mateos es un producto de software web orientado a centralizar la gestión operativa de Restaurante Mateos, 
+organización gastronómica de la ciudad de Ambato que trabaja con dos sucursales. El producto busca reemplazar y 
+complementar registros manuales utilizados en la operación diaria mediante herramientas digitales para ventas, 
+conteo de almuerzos y proteínas, menú configurable, inventario, gastos, reportes, indicadores y apoyo a la toma de decisiones.
+
+La planificación detallada constituye la línea base para organizar el trabajo del equipo desde el \textbf{12 de agosto de 2026} 
+hasta el \textbf{4 de noviembre de 2026}. El cronograma considera \textbf{61 días laborables}, con jornadas de lunes a viernes. 
+La estructura se organiza en seis fases: Planificación y Análisis de Requisitos; Diseño del Sistema; Desarrollo del Sistema; 
+Pruebas y Aseguramiento de la Calidad; Implantación y Despliegue; y Capacitación, Documentación y Cierre.
+
+El presente informe consolida la Estructura de Desglose del Trabajo (EDT, conocida internacionalmente como WBS), las duraciones, las dependencias, los trabajos paralelos y secuenciales, los entregables, 
+los recursos, el presupuesto, la calidad, las comunicaciones, los riesgos, las adquisiciones y los criterios de control. 
+La planificación descrita en este documento constituye la línea base detallada del proyecto y prevalece, para efectos de ejecución 
+y seguimiento, sobre estimaciones preliminares de tiempo realizadas antes de completar la descomposición del trabajo.
+
+\section{Objetivos}
+
+\subsection{Objetivo general}
+
+Establecer la planificación integral del proyecto RestGest Mateos mediante la definición de alcance, fases, actividades, entregables, 
+tiempos, dependencias, recursos, costos, criterios de calidad, comunicaciones y riesgos, con el fin de dirigir su desarrollo e 
+implantación entre el 12 de agosto y el 4 de noviembre de 2026.
+
+\subsection{Objetivos específicos}
+
+\begin{enumerate}
+    \item Descomponer el proyecto en fases y paquetes de trabajo verificables mediante una EDT, determinando para cada actividad su duración, fecha de inicio, fecha de finalización, predecesores y entregables.
+    \item Asignar de forma coherente los recursos humanos, tecnológicos y económicos necesarios, identificando actividades paralelas y secuenciales para aprovechar la especialización del equipo y mantener el cronograma de 61 días laborables.
+    \item Definir mecanismos de calidad, comunicación, gestión de riesgos, adquisiciones, aceptación y control de cambios que permitan monitorear el avance y asegurar la entrega funcional de RestGest Mateos dentro del alcance autorizado.
+\end{enumerate}
+
+\section{Alcance}
+
+El presente informe comprende la planificación del proyecto RestGest Mateos desde el \textbf{12/08/2026} hasta el 
+\textbf{04/11/2026}, considerando el trabajo del equipo de proyecto y la participación del representante autorizado y usuarios 
+designados de Restaurante Mateos.
+
+El alcance documental incluye:
+
+\begin{itemize}
+    \item estructura de desglose del trabajo y seis fases del proyecto;
+    \item cronograma detallado, hitos y relaciones de precedencia;
+    \item definición de actividades paralelas y secuenciales;
+    \item entregables por paquete de trabajo;
+    \item asignación de responsabilidades y recursos;
+    \item presupuesto operativo del proyecto;
+    \item planificación de calidad, pruebas y criterios de aceptación;
+    \item gestión de comunicaciones, riesgos, adquisiciones y cambios;
+    \item planificación del piloto en la sucursal 2 y posterior despliegue para las dos sucursales;
+    \item documentación, capacitación, aceptación y cierre.
+\end{itemize}
+
+La planificación funcional contempla usuarios y roles, sucursales, productos, categorías, menú diario configurable, conteo rápido, 
+ventas, inventario, gastos, reportes, panel de control, indicadores y recomendaciones. El reconocimiento óptico de caracteres (OCR) se 
+considera una funcionalidad de apoyo sujeta a validación técnica y revisión humana.
+
+Quedan fuera del alcance inicial la contabilidad formal, facturación electrónica, declaraciones tributarias, nómina, ERP completo, 
+plataforma bancaria, sistema integral de servicio de entrega a domicilio, gestión integral de servicio de alimentación para eventos y modelos predictivos avanzados sin historial suficiente. 
+El consumo teórico por recetas permanece condicionado a que el restaurante disponga de porciones y recetas suficientemente estandarizadas.
+
+\section{Definiciones}
+
+\begin{longtable}{|p{4.0cm}|p{11.0cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Término / Sigla} & \textbf{Definición utilizada en el proyecto} \\ \hline
+EDT & Estructura de Desglose del Trabajo. Representación jerárquica del alcance del proyecto en fases, actividades y paquetes de trabajo. En documentación internacional también se identifica mediante la sigla WBS. \\ \hline
+Paquete de trabajo & Unidad gestionable de la EDT que produce un entregable verificable y puede estimarse, asignarse y controlarse. \\ \hline
+Entregable & Resultado verificable de una actividad, como un documento, modelo, módulo funcional, informe, configuración o versión del producto. \\ \hline
+Predecesor & Actividad o hito que debe finalizar antes de que una actividad sucesora pueda iniciar, salvo que se establezca otro tipo de dependencia. \\ \hline
+Actividad paralela & Actividad que puede ejecutarse simultáneamente con otra porque sus dependencias y recursos permiten el solapamiento temporal. \\ \hline
+Actividad secuencial & Actividad cuyo inicio depende de la terminación de uno o varios trabajos anteriores. \\ \hline
+Hito & Evento de duración cero utilizado para representar una validación, aceptación, despliegue o cierre relevante. \\ \hline
+RF / RNF & Requisitos Funcionales y Requisitos No Funcionales. \\ \hline
+ERS & Especificación de Requisitos de Software. Documento que consolida los requisitos funcionales, no funcionales y reglas asociadas al producto. \\ \hline
+OCR & Reconocimiento Óptico de Caracteres. Técnica utilizada como apoyo para extraer texto de tickets y notas de venta digitalizados. \\ \hline
+API & Interfaz de Programación de Aplicaciones. Mecanismo de comunicación entre componentes del sistema. \\ \hline
+Control de acceso basado en roles & Modelo de autorización que asigna permisos según el rol de cada usuario dentro del sistema. \\ \hline
+Integración y despliegue continuos & Práctica de automatización para construir, verificar y desplegar cambios de software de manera controlada. \\ \hline
+Línea base & Versión aprobada del alcance, cronograma o presupuesto utilizada como referencia formal para seguimiento y control. \\ \hline
+\end{longtable}
+
+\section{Responsabilidades}
+
+\begin{longtable}{|p{4.6cm}|p{4.2cm}|p{6.5cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Responsable} & \textbf{Rol} & \textbf{Responsabilidades de planificación y ejecución} \\ \hline
+Paredes Medina Steven Eduardo & Director del Proyecto / Líder Técnico & Mantener el alcance y el cronograma; coordinar al equipo; dirigir la arquitectura e integración; apoyar el desarrollo del lado del servidor; revisar dependencias; gestionar cambios, riesgos y validación interna. \\ \hline
+Llerena Garcés Gabriel Stefano & Responsable de Base de Datos y Datos & Diseñar el modelo relacional; administrar PostgreSQL y Prisma; gestionar migraciones, integridad, consultas, reportes y datos de inventario; apoyar la validación de consistencia y trazabilidad. \\ \hline
+Navarro Pazmiño Maybelline Estefania & Responsable de Experiencia e Interfaz de Usuario y Desarrollo de Interfaz & Investigar necesidades de uso; elaborar bocetos y prototipos en Figma; definir el sistema visual; implementar la interfaz con React y Material UI; asegurar diseño adaptable y usabilidad. \\ \hline
+Aguilar Guillen Erick Mateo & Responsable de Aseguramiento de la Calidad, Operaciones de Desarrollo e Integraciones & Planificar y ejecutar pruebas; automatizar verificaciones; mantener integración y despliegue continuos; administrar Docker y despliegues; realizar monitoreo básico; integrar y validar el componente OCR. \\ \hline
+Representante autorizado de Restaurante Mateos & Patrocinador / Validador del producto & Validar requisitos, prototipos, configuración operativa, piloto y aceptación final; autorizar cambios relevantes de alcance o presupuesto. \\ \hline
+Usuarios operativos designados & Usuarios de validación & Probar flujos de conteo, ventas, inventario y operación diaria; reportar incidencias y retroalimentación durante validaciones y piloto. \\ \hline
+\end{longtable}
+
+Los roles representan responsabilidad primaria y no restringen la colaboración entre integrantes. En particular, el desarrollo y las pruebas requieren apoyo cruzado cuando una actividad predecesora afecta el trabajo de otro responsable.
+
+\section{Normativa legal y técnica aplicable}
+
+Las siguientes normas, leyes y buenas prácticas se utilizarán como \textbf{referencias de planificación, desarrollo y control}; su mención 
+no implica certificación formal del producto:
+
+\begin{enumerate}
+    \item \textbf{Ley Orgánica de Protección de Datos Personales del Ecuador y su normativa reglamentaria aplicable:} referencia para el tratamiento responsable de datos personales, credenciales y documentos almacenados.
+    \item \textbf{ISO 9001:2015:} referencia para control documental, trazabilidad, revisión, aprobación y mejora continua de los documentos y procesos.
+    \item \textbf{ISO 21502:2020:} guía de referencia para prácticas de dirección y planificación de proyectos.
+    \item \textbf{ISO/IEC 25010:} modelo de calidad para evaluar características del producto software, especialmente adecuación funcional, eficiencia, usabilidad, fiabilidad, seguridad y mantenibilidad.
+    \item \textbf{ISO/IEC 27001:2022:} referencia para controles de seguridad de la información y gestión de accesos.
+    \item \textbf{ISO/IEC/IEEE 29148:2018:} referencia para ingeniería y documentación de requisitos.
+    \item \textbf{ISO/IEC/IEEE 12207:2017:} referencia para procesos del ciclo de vida del software.
+    \item \textbf{OWASP ASVS y OWASP Top 10:} buenas prácticas de verificación y prevención de vulnerabilidades comunes en aplicaciones web.
+\end{enumerate}
+
+\textbf{Documentos habilitantes internos:}
+
+\begin{itemize}
+    \item Acta de Constitución del Proyecto RestGest Mateos;
+    \item EDT detallada del proyecto;
+    \item archivo de planificación de Microsoft Project \texttt{RestGest\_Mateos\_MS\_Project.xml};
+    \item registro de levantamiento y requerimientos del negocio;
+    \item criterios de alcance, entregables y aceptación definidos para RestGest Mateos.
+\end{itemize}
+
+\section{Método / Políticas / Contenido}
+
+\subsection{Método de planificación}
+
+La planificación se elaboró mediante un enfoque \textbf{por fases con ejecución técnica parcialmente paralela}. Las fases mantienen una 
+secuencia macro obligatoria, mientras que dentro de cada fase se permite ejecutar actividades simultáneas cuando sus dependencias y 
+responsables lo permiten.
+
+El procedimiento aplicado fue:
+
+\begin{enumerate}
+    \item consolidar el alcance funcional y las exclusiones del producto;
+    \item descomponer el trabajo mediante una EDT;
+    \item identificar entregables verificables por actividad;
+    \item estimar duraciones en días laborables de lunes a viernes;
+    \item establecer relaciones de Fin a Inicio entre actividades dependientes;
+    \item permitir paralelismo donde no existe restricción técnica;
+    \item garantizar que el último proceso o hito de cada fase sea predecesor del inicio de la siguiente;
+    \item asignar responsables según especialidad;
+    \item establecer recursos, costos, calidad, riesgos, comunicaciones y adquisiciones;
+    \item cargar la planificación en Microsoft Project para mantener niveles de sangría, predecesores y visualización temporal.
+\end{enumerate}
+
+La duración de cada actividad se expresa en \textbf{días laborables}. Los sábados y domingos no se contabilizan. Para esta línea base 
+académica no se descuentan feriados.
+
+\subsection{Políticas de planificación y control}
+
+\begin{itemize}
+    \item La línea base temporal inicia el 12/08/2026 y finaliza el 04/11/2026.
+    \item Ninguna actividad puede iniciarse antes de cumplir sus predecesores definidos.
+    \item Las actividades con el mismo predecesor pueden ejecutarse en paralelo cuando sus responsables y recursos lo permitan.
+    \item El último proceso o hito de una fase actúa como puerta de control para la fase siguiente.
+    \item Los cambios que afecten alcance, fecha final o presupuesto requieren análisis de impacto antes de incorporarse a la línea base.
+    \item El código fuente se mantendrá en repositorio privado con control de versiones y revisión de cambios.
+    \item El OCR nunca será fuente autoritativa de datos: todo reconocimiento debe ser revisable y corregible antes del registro definitivo.
+    \item El despliegue completo se realizará después del piloto y de la corrección de incidencias prioritarias.
+    \item Los entregables documentales se mantendrán versionados y con evidencia de elaboración, revisión y aprobación.
+\end{itemize}
+
+\subsection{Línea base del alcance}
+
+El producto se organiza alrededor de la secuencia conceptual \textbf{Registrar - Relacionar - Analizar - Recomendar}. La línea base incluye:
+
+\begin{itemize}
+    \item autenticación, usuarios, roles y permisos;
+    \item gestión de dos sucursales;
+    \item productos, categorías, proteínas y menú diario configurable;
+    \item conteo rápido de almuerzos, proteínas, extras y opciones;
+    \item registro e historial de ventas;
+    \item inventario con entradas, salidas, ajustes, stock y niveles mínimos;
+    \item gastos por categoría y sucursal;
+    \item reportes diarios, semanales, mensuales y por rango;
+    \item reportes por sucursal, tipo de almuerzo y proteína;
+    \item productos más vendidos;
+    \item reportes de inventario, movimientos, ajustes y stock bajo;
+    \item reportes de gastos y comparación entre sucursales;
+    \item panel de control, indicadores y recomendaciones operativas;
+    \item reconocimiento óptico de caracteres (OCR) asistido para tickets y notas, sujeto a validación técnica;
+    \item piloto, despliegue, documentación, capacitación y aceptación.
+\end{itemize}
+
+\subsection{EDT y línea base temporal}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{|c|X|c|c|c|}
+\hline
+\rowcolor{tableheader}
+\textbf{Fase} & \textbf{Descripción} & \textbf{Duración} & \textbf{Inicio} & \textbf{Fin} \\ \hline
+1 & Planificación y Análisis de Requisitos & 11 días & 12/08/2026 & 26/08/2026 \\ \hline
+2 & Diseño del Sistema & 10 días & 27/08/2026 & 09/09/2026 \\ \hline
+3 & Desarrollo del Sistema & 23 días & 10/09/2026 & 12/10/2026 \\ \hline
+4 & Pruebas y Aseguramiento de la Calidad & 10 días & 13/10/2026 & 26/10/2026 \\ \hline
+5 & Implantación y Despliegue & 5 días & 27/10/2026 & 02/11/2026 \\ \hline
+6 & Capacitación, Documentación y Cierre & 2 días & 03/11/2026 & 04/11/2026 \\ \hline
+\rowcolor{headergray}
+\multicolumn{2}{|l|}{\textbf{PROYECTO COMPLETO}} & \textbf{61 días} & \textbf{12/08/2026} & \textbf{04/11/2026} \\ \hline
+\end{tabularx}
+\end{center}
+
+\subsection{Diagrama general de secuencia y dependencia entre fases}
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=8mm and 8mm,
+    box/.style={draw,rounded corners=4pt,align=center,minimum height=2.2cm,text width=3.8cm,inner sep=5pt,fill=phaseblue},
+    arrow/.style={-{Latex[length=2.8mm]},thick}
+]
+\node[box] (f1) {\textbf{Fase 1}\\[2pt]Planificación y Análisis de Requisitos\\[3pt]{\small 12/08--26/08}};
+\node[box,right=of f1] (f2) {\textbf{Fase 2}\\[2pt]Diseño del Sistema\\[3pt]{\small 27/08--09/09}};
+\node[box,right=of f2,fill=phasegreen] (f3) {\textbf{Fase 3}\\[2pt]Desarrollo del Sistema\\[3pt]{\small 10/09--12/10}};
+\node[box,right=of f3,fill=phaseorange] (f4) {\textbf{Fase 4}\\[2pt]Pruebas y Aseguramiento de la Calidad\\[3pt]{\small 13/10--26/10}};
+\node[box,right=of f4] (f5) {\textbf{Fase 5}\\[2pt]Implantación y Despliegue\\[3pt]{\small 27/10--02/11}};
+\node[box,right=of f5,fill=phasegreen] (f6) {\textbf{Fase 6}\\[2pt]Capacitación, Documentación y Cierre\\[3pt]{\small 03/11--04/11}};
+\draw[arrow] (f1) -- node[above,font=\small\bfseries]{1.9} (f2);
+\draw[arrow] (f2) -- node[above,font=\small\bfseries]{2.7} (f3);
+\draw[arrow] (f3) -- node[above,font=\small\bfseries]{3.10} (f4);
+\draw[arrow] (f4) -- node[above,font=\small\bfseries]{4.7} (f5);
+\draw[arrow] (f5) -- node[above,font=\small\bfseries]{5.6} (f6);
+\end{tikzpicture}%
+}
+\caption{Secuencia y dependencia entre las seis fases del proyecto.}
+\label{fig:flujo-fases}
+\end{figure}
+
+La Figura~\ref{fig:flujo-fases} muestra la regla de control entre fases. Los códigos \textbf{1.9, 2.7, 3.10, 4.7 y 5.6} ubicados sobre las conexiones corresponden a la última actividad o hito de cierre de cada fase y actúan como predecesores del bloque inicial de la fase siguiente. Dentro de cada fase existen actividades paralelas que se detallan posteriormente.
+
+\subsection{Relaciones de paralelismo y secuencia}
+
+\begin{longtable}{|c|p{6.2cm}|p{7.7cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Fase} & \textbf{Trabajo paralelo} & \textbf{Cadena secuencial / convergencia} \\ \hline
+1 & 1.1 $\parallel$ 1.2; 1.3 $\parallel$ 1.4; 1.5 y 1.6 con solapamiento; 1.7 $\parallel$ 1.8. & 1.1/1.2 $\rightarrow$ 1.3/1.4 $\rightarrow$ 1.5/1.6 $\rightarrow$ 1.7/1.8 $\rightarrow$ 1.9. \\ \hline
+2 & 2.1 $\parallel$ 2.2 $\parallel$ 2.3 $\parallel$ 2.4; 2.5 $\parallel$ 2.6. & 2.2/2.3 $\rightarrow$ 2.5; 2.4 $\rightarrow$ 2.6; luego 2.1/2.5/2.6 $\rightarrow$ 2.7. \\ \hline
+3 & 3.2 $\parallel$ 3.3; 3.4 $\parallel$ 3.5; 3.6 $\parallel$ 3.7; 3.8 $\parallel$ 3.9. & 3.1 $\rightarrow$ 3.2/3.3 $\rightarrow$ 3.4/3.5; los módulos alimentan reportes/panel de control; 3.7/3.8/3.9 $\rightarrow$ 3.10. \\ \hline
+4 & 4.1 $\parallel$ 4.2; 4.3 $\parallel$ 4.4 $\parallel$ 4.5. & 4.1/4.2 $\rightarrow$ 4.3/4.4/4.5 $\rightarrow$ 4.6 $\rightarrow$ 4.7. \\ \hline
+5 & 5.1 $\parallel$ 5.2. & 5.1/5.2 $\rightarrow$ 5.3 $\rightarrow$ 5.4 $\rightarrow$ 5.5 $\rightarrow$ 5.6. \\ \hline
+6 & 6.1 $\parallel$ 6.2 $\parallel$ 6.3. & 6.1/6.2/6.3 $\rightarrow$ 6.4 $\rightarrow$ 6.5. \\ \hline
+\end{longtable}
+
+\subsection{Dependencias entre fases}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|c|X|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Transición} & \textbf{Predecesor obligatorio} & \textbf{Trabajo habilitado} \\ \hline
+Fase 1 $\rightarrow$ Fase 2 & 1.9 Validación y cierre de la fase de requisitos & 2.1, 2.2, 2.3 y 2.4 \\ \hline
+Fase 2 $\rightarrow$ Fase 3 & 2.7 Validación del diseño & 3.1 Configuración del proyecto y entornos \\ \hline
+Fase 3 $\rightarrow$ Fase 4 & 3.10 Integración completa de módulos & 4.1 Plan de pruebas y 4.2 Pruebas unitarias/integración \\ \hline
+Fase 4 $\rightarrow$ Fase 5 & 4.7 Aceptación preliminar & 5.1 Infraestructura y 5.2 Carga/configuración inicial \\ \hline
+Fase 5 $\rightarrow$ Fase 6 & 5.6 Despliegue definitivo & 6.1 Manuales, 6.2 documentación técnica y 6.3 capacitación final \\ \hline
+\end{tabularx}
+\end{center}
+
+\subsection{Plan de recursos}
+
+\subsubsection{Recursos humanos}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|c|X|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Fase} & \textbf{Responsabilidad principal} & \textbf{Apoyo / colaboración} \\ \hline
+1 & Steven: dirección, alcance y planificación. & Gabriel, Maybelline y Erick participan en levantamiento, requisitos, riesgos y estimaciones. \\ \hline
+2 & Steven: arquitectura; Gabriel: datos; Maybelline: experiencia e interfaz de usuario; Erick: seguridad e integración. & Revisión cruzada y validación técnica conjunta. \\ \hline
+3 & Trabajo distribuido por especialidad en módulos funcionales. & Integraciones y revisiones conjuntas; Steven coordina dependencias. \\ \hline
+4 & Erick lidera el aseguramiento de la calidad, automatización y evidencias. & Cada responsable corrige defectos en su componente. \\ \hline
+5 & Erick lidera infraestructura y despliegue; Steven coordina el piloto. & Gabriel apoya datos; Maybelline apoya usabilidad; todo el equipo atiende incidencias. \\ \hline
+6 & Steven coordina aceptación y cierre. & Todo el equipo consolida manuales, documentación y capacitación. \\ \hline
+\end{tabularx}
+\end{center}
+
+\subsubsection{Recursos tecnológicos}
+
+La arquitectura tecnológica se selecciona para minimizar el costo inicial sin comprometer la posibilidad de crecimiento. Se prioriza el uso de herramientas de código abierto, planes gratuitos y consolidación de servicios cuando sea técnicamente viable.
+
+\begin{itemize}
+    \item \textbf{Equipos de trabajo:} computadores portátiles personales del equipo y conexión a Internet.
+    \item \textbf{Interfaz de usuario:} React 19, TypeScript, Vite, Material UI, TanStack Query, React Hook Form y Zod.
+    \item \textbf{Servidor de aplicaciones:} NestJS sobre Node.js 24 LTS, servicios REST y documentación Swagger/OpenAPI.
+    \item \textbf{Persistencia:} PostgreSQL 18 y Prisma. Inicialmente PostgreSQL podrá ejecutarse en el mismo servidor virtual de la aplicación para reducir costos; una base administrada se mantiene como alternativa de contingencia o crecimiento.
+    \item \textbf{Seguridad:} tokens JWT, cookies con atributo HttpOnly, control de acceso basado en roles y Argon2id.
+    \item \textbf{Infraestructura:} Docker, Nginx y un servidor virtual de DigitalOcean; el despliegue de la interfaz puede utilizar Cloudflare Pages cuando resulte conveniente.
+    \item \textbf{Archivos y respaldos:} Cloudflare R2, sujeto al volumen real de almacenamiento.
+    \item \textbf{Reconocimiento de documentos:} Google Cloud Vision para OCR, condicionado a la validación técnica y al control de consumo.
+    \item \textbf{Gestión técnica:} GitHub, GitHub Actions y repositorio privado.
+    \item \textbf{Diseño:} Figma.
+    \item \textbf{Gestión del trabajo:} Trello.
+    \item \textbf{Pruebas:} Vitest/Jest y Playwright.
+\end{itemize}
+
+\begin{landscape}
+\subsection{Plan de costos}
+
+El trabajo del equipo se desarrolla como proyecto académico; por tanto, el tiempo de los integrantes no se registra como nómina dentro del presupuesto directo. Los computadores existentes tampoco se consideran adquisiciones del proyecto.
+
+Se establece un \textbf{presupuesto directo máximo de USD 250,00}. Este valor constituye un \textbf{techo presupuestario y no una obligación de gasto}. La arquitectura se planifica para utilizar planes gratuitos y consolidar infraestructura siempre que sea viable; por ello, el costo real esperado puede ser considerablemente menor. El margen disponible permite responder a escalamiento del servidor, consumo adicional de servicios externos, contratación temporal de una base de datos administrada o contingencias durante el piloto.
+
+\begin{center}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\small
+\begin{tabular}{|p{3.2cm}|p{7.0cm}|p{3.0cm}|p{8.8cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Actividad / partida} & \textbf{Concepto cubierto} & \textbf{Reserva máxima USD} & \textbf{Criterio} \\ \hline
+3.7 y 4.5 & OCR y validación con documentos reales & 30.00 & Se prioriza el nivel gratuito; la reserva cubre consumo adicional si fuera necesario. \\ \hline
+5.1 & Infraestructura de aplicación y base de datos & 130.00 & Servidor virtual, posible ampliación temporal y alternativa de base administrada si el piloto lo requiere. \\ \hline
+5.2 & Configuración, respaldos y almacenamiento & 20.00 & Se priorizan herramientas gratuitas y almacenamiento de bajo costo. \\ \hline
+5.6 & Dominio y puesta en producción & 20.00 & Registro de dominio y necesidades asociadas al despliegue. \\ \hline
+Transversal & Contingencia técnica y operativa & 50.00 & Margen para variaciones de precio, consumo adicional o necesidades no previstas. \\ \hline
+\rowcolor{headergray}
+\multicolumn{2}{|l|}{\textbf{PRESUPUESTO DIRECTO MÁXIMO DEL PROYECTO}} & \textbf{250.00} & \textbf{Techo presupuestario autorizado para planificación.} \\ \hline
+\end{tabular}
+\end{center}
+
+El Director del Proyecto verificará el precio vigente de cada servicio antes de contratarlo. Cualquier necesidad que supere el techo de USD 250,00 deberá tratarse como cambio presupuestario y requerirá autorización del representante correspondiente.
+\end{landscape}
+
+\subsection{Plan de calidad}
+
+La calidad se verificará durante todo el ciclo de vida. Las normas se emplean como referencias de trabajo y no implican certificación formal del producto.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|c|X|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Fase} & \textbf{Referencia o criterio principal} & \textbf{Aplicación planificada} \\ \hline
+1 & ISO 21502 e ISO/IEC/IEEE 29148 & Planificación, trazabilidad y calidad de requisitos. \\ \hline
+2 & ISO/IEC 25010, ISO/IEC 27001 y OWASP & Arquitectura, experiencia de usuario, seguridad, permisos y diseño de datos. \\ \hline
+3 & ISO/IEC 25010, ISO/IEC 27001 y OWASP & Calidad del producto, prácticas de desarrollo seguro e integración de módulos. \\ \hline
+4 & ISO/IEC 25010 y criterios de aceptación & Pruebas funcionales, usabilidad, seguridad, rendimiento, regresión y validación del OCR. \\ \hline
+5 & ISO/IEC 27001 y criterios de continuidad & Configuración segura, respaldos, piloto, monitoreo y despliegue. \\ \hline
+6 & ISO 9001 y control documental & Manuales, trazabilidad, capacitación, aceptación y cierre. \\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{longtable}{|p{4.2cm}|p{6.3cm}|p{5.0cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Aspecto} & \textbf{Criterio planificado} & \textbf{Evidencia} \\ \hline
+Adecuación funcional & Los módulos cumplen requisitos funcionales, reglas de negocio y casos de uso priorizados. & Matriz de pruebas funcionales y pruebas de aceptación de usuario. \\ \hline
+Conteo rápido & El flujo permite registrar almuerzos y proteínas con pocos pasos y sin bloquear la atención normal. & Pruebas de usabilidad y piloto. \\ \hline
+Reportes & Los totales coinciden con conjuntos de datos controlados. & Casos de prueba y comparación de resultados. \\ \hline
+Rendimiento & Operaciones comunes cercanas o inferiores a 2 s y reportes usuales cercanos o inferiores a 5 s en condiciones normales de prueba. & Informe de rendimiento. \\ \hline
+Seguridad & Autenticación, roles, mínimo privilegio, contraseñas protegidas y HTTPS en producción. & Lista de verificación de seguridad y pruebas. \\ \hline
+Respaldo & Al menos una prueba satisfactoria de respaldo y restauración antes de la aceptación. & Registro de restauración. \\ \hline
+OCR & Si la extracción de campos obligatorios no alcanza aproximadamente 90\% de precisión en una muestra representativa, el OCR permanecerá como ayuda opcional y se conservará el registro manual. & Informe de precisión y viabilidad del OCR. \\ \hline
+Piloto & No deben quedar defectos críticos que impidan el registro operativo básico antes del despliegue definitivo. & Informe de piloto e incidencias. \\ \hline
+Mantenibilidad & Arquitectura monolítica modular, control de versiones, documentación y despliegue reproducible. & Repositorio, documentación técnica y contenedores Docker. \\ \hline
+\end{longtable}
+
+\subsection{Plan de comunicaciones}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|p{3.6cm}|p{3cm}|p{3cm}|X|p{2.5cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Comunicación} & \textbf{Participantes} & \textbf{Frecuencia} & \textbf{Propósito / evidencia} & \textbf{Canal} \\ \hline
+Seguimiento interno & Equipo del proyecto & Semanal & Revisar avance, bloqueos, riesgos y próximas actividades. Registro en tablero. & Trello / reunión \\ \hline
+Revisión técnica & Responsables técnicos & Continua según cambios & Revisar código, integraciones y defectos. & GitHub \\ \hline
+Validación de fase & Director + representante autorizado & Al cierre de cada fase relevante & Confirmar entregables y habilitar la fase siguiente. & Reunión y acta/registro \\ \hline
+Revisión de riesgos & Director + responsables & Semanal & Actualizar probabilidad, impacto y respuesta. & Matriz de riesgos \\ \hline
+Piloto & Equipo + usuarios de sucursal 2 & Durante el piloto & Registrar incidencias, tiempos de uso y observaciones. & Registro de incidencias \\ \hline
+Cierre y aceptación & Equipo + representante autorizado & 04/11/2026 & Revisar criterios, documentación y aceptación final. & Acta de aceptación \\ \hline
+\end{tabularx}
+\end{center}
+
+\subsection{Plan de riesgos}
+
+\begin{landscape}
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{longtable}{|p{3.8cm}|p{2cm}|p{2cm}|p{6.8cm}|p{4.2cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Respuesta planificada} & \textbf{Responsable primario} \\ \hline
+Crecimiento no controlado del alcance & Media & Alta & Mantener línea base, registrar solicitudes, evaluar impacto y diferir funciones no prioritarias. & Director del Proyecto \\ \hline
+Retrasos del equipo & Media & Alta & Control semanal, paralelización responsable, prioridad a paquetes críticos y escalamiento temprano de bloqueos. & Director del Proyecto \\ \hline
+Registro digital lento en horas pico & Media & Alta & Prototipar y probar conteo rápido; medir usabilidad; ajustar antes del despliegue definitivo. & Experiencia e Interfaz de Usuario + Director \\ \hline
+OCR poco confiable & Alta & Media & Usar documentos reales, revisión humana obligatoria y mantener ingreso manual. & Aseguramiento de la Calidad e Integraciones \\ \hline
+Diferencias entre inventario físico y sistema & Media & Alta & Trazabilidad de movimientos, ajustes, conteos físicos y validación de datos. & Base de Datos y Datos \\ \hline
+Fallo de infraestructura o Internet & Media & Alta & Respaldos, monitoreo, procedimiento de recuperación y contingencia operativa. & Operaciones de Desarrollo \\ \hline
+Acceso no autorizado / pérdida de datos & Media & Alta & HTTPS, control de acceso basado en roles y Argon2id, mínimo privilegio, respaldos y pruebas de seguridad. & Aseguramiento de la Calidad / Operaciones de Desarrollo + Líder Técnico \\ \hline
+Baja adopción del personal & Media & Alta & Validación temprana, interfaz simple, capacitación y acompañamiento en piloto. & Experiencia e Interfaz de Usuario + Director \\ \hline
+Uso inconsistente entre sucursales & Media & Media & Estandarizar procedimientos, parametrización común y capacitación. & Director + representante \\ \hline
+Variación de precios de proveedores & Baja & Media & Mantener contingencia dentro de USD 250 y verificar precios antes de contratar. & Director del Proyecto \\ \hline
+\end{longtable}
+\end{center}
+\end{landscape}
+
+\begin{landscape}
+\subsection{Plan de adquisiciones e infraestructura}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\small
+\begin{tabularx}{\linewidth}{|p{4.0cm}|p{1.4cm}|p{3.4cm}|p{3.5cm}|p{2.4cm}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Servicio / recurso} & \textbf{Cant.} & \textbf{Momento previsto} & \textbf{Responsable} & \textbf{Partida máxima} & \textbf{Condición de adquisición / uso} \\ \hline
+Repositorio privado GitHub y automatización & 1 & Desde planificación y desarrollo & Erick / Steven & USD 0 esperado & Utilizar plan disponible sin costo cuando cubra las necesidades del equipo. \\ \hline
+Google Cloud Vision & 1 servicio & Fase 3 y validación en Fase 4 & Erick & Hasta USD 30 & Activar solo para OCR; controlar consumo y mantener ingreso manual como alternativa. \\ \hline
+Cloudflare R2 & 1 espacio & Fases 3 y 5 & Erick & Dentro de reserva de USD 20 & Utilizar para documentos y respaldos cuando el volumen lo requiera. \\ \hline
+Servidor virtual DigitalOcean & 1 instancia & Antes de la Fase 5 & Erick & Dentro de reserva de USD 130 & Seleccionar el tamaño mínimo que soporte el piloto; ampliar únicamente con evidencia de necesidad. \\ \hline
+PostgreSQL & 1 instancia & Desarrollo y producción & Gabriel / Erick & Incluido en infraestructura & Ejecutar inicialmente en el mismo servidor virtual; base administrada solo como contingencia o escalamiento. \\ \hline
+Dominio y configuración Nginx/HTTPS & 1 dominio & Antes del despliegue definitivo & Erick & Hasta USD 20 & Contratar/configurar cuando se defina el nombre final y antes de la puesta en producción. \\ \hline
+Figma y Trello & 1 espacio por herramienta & Durante todo el proyecto & Maybelline / Steven & USD 0 esperado & Utilizar planes disponibles sin costo mientras cubran la necesidad del proyecto. \\ \hline
+\end{tabularx}
+\end{center}
+\end{landscape}
+
+\subsection{Gestión de cambios y seguimiento}
+
+Toda solicitud que altere alcance, presupuesto, fecha final, dependencias críticas o criterios de aceptación deberá registrarse y 
+evaluarse antes de modificar la línea base. La evaluación considerará:
+
+\begin{itemize}
+    \item descripción y motivo del cambio;
+    \item actividades y entregables afectados;
+    \item impacto en cronograma y ruta de dependencias;
+    \item impacto en costo, calidad y riesgo;
+    \item decisión de aceptar, diferir o rechazar;
+    \item actualización de versión documental cuando corresponda.
+\end{itemize}
+
+El seguimiento utilizará el cronograma de Microsoft Project, Trello para trabajo operativo, GitHub para evidencia técnica y los informes 
+de pruebas/piloto para control de calidad.
+
+\section{Descripción de actividades}
+
+Las siguientes tablas constituyen la descripción formal de las actividades planificadas. La columna \textbf{Pred.} indica los códigos EDT 
+de las actividades predecesoras. Las relaciones cargadas en Microsoft Project son de tipo \textbf{Fin a Inicio (FI)}. Cuando varias 
+actividades comparten un mismo predecesor y sus fechas se superponen, se consideran trabajos paralelos. El cierre de cada fase converge 
+en un último proceso o hito que habilita la siguiente fase.
+
+
+
+\begin{landscape}
+\subsection{Fase 1 - Planificación y Análisis de Requisitos}
+
+La fase se ejecuta del \textbf{12/08/2026} al \textbf{26/08/2026}, con una duración de \textbf{11 días laborables}. 
+La responsabilidad principal corresponde a Paredes Medina Steven Eduardo (coordinación); participación de todo el equipo.
+
+\begin{center}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\fontsize{7.2}{8.5}\selectfont
+\begin{tabularx}{\linewidth}{|p{0.85cm}|p{4.0cm}|p{0.75cm}|p{1.45cm}|p{1.45cm}|p{1.4cm}|p{4.0cm}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Código EDT} & \textbf{Actividad} & \textbf{Dur.} & \textbf{Inicio} & \textbf{Fin} & \textbf{Pred.} & \textbf{Ejecución} & \textbf{Entregable} \\ \hline
+1.1 & Levantamiento detallado de información & 3 d & 12/08/2026 & 14/08/2026 & -- & Paralela con 1.2 & Informe de levantamiento de información \\ \hline
+1.2 & Análisis de procesos actuales & 3 d & 12/08/2026 & 14/08/2026 & -- & Paralela con 1.1 & Diagramas y descripción de los procesos actuales \\ \hline
+1.3 & Análisis de inventario, gastos y operación multisucursal & 3 d & 17/08/2026 & 19/08/2026 & 1.1, 1.2 & Paralela con 1.4 & Modelo preliminar de inventario, gastos y operación por sucursal \\ \hline
+1.4 & Definición de requerimientos funcionales y no funcionales & 3 d & 17/08/2026 & 19/08/2026 & 1.1, 1.2 & Paralela con 1.3 & Catálogo de requerimientos RF y RNF \\ \hline
+1.5 & Definición de reglas de negocio y alcance & 2 d & 20/08/2026 & 21/08/2026 & 1.3, 1.4 & Paralela parcialmente con 1.6 & Documento de reglas de negocio y línea base de alcance \\ \hline
+1.6 & Elaboración de casos de uso y flujos & 3 d & 20/08/2026 & 24/08/2026 & 1.3, 1.4 & Paralela parcialmente con 1.5 & Modelo de casos de uso y flujos principales \\ \hline
+1.7 & Elaboración de la Especificación de Requisitos de Software & 3 d & 24/08/2026 & 26/08/2026 & 1.5 & Paralela con 1.8; consolida resultados de requisitos & Especificación de Requisitos de Software \\ \hline
+1.8 & Planificación de cronograma, recursos, costos, calidad, riesgos y comunicaciones & 3 d & 24/08/2026 & 26/08/2026 & 1.5 & Paralela con 1.7 & Plan integrado de gestión del proyecto \\ \hline
+1.9 & Validación y cierre de la fase de requisitos & 0 d & 26/08/2026 & 26/08/2026 & 1.6, 1.7, 1.8 & Hito secuencial; habilita la Fase 2 & Requisitos y planificación validados \\ \hline
+\end{tabularx}
+\end{center}
+\end{landscape}
+
+
+
+
+\begin{landscape}
+\subsection{Fase 2 - Diseño del Sistema}
+
+La fase se ejecuta del \textbf{27/08/2026} al \textbf{09/09/2026}, con una duración de \textbf{10 días laborables}. 
+La responsabilidad principal corresponde a Paredes Medina Steven Eduardo (arquitectura), Llerena Garcés Gabriel Stefano (datos), Navarro Pazmiño Maybelline Estefania (experiencia e interfaz de usuario) y Aguilar Guillen Erick Mateo (seguridad e integración).
+
+\begin{center}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\fontsize{7.2}{8.5}\selectfont
+\begin{tabularx}{\linewidth}{|p{0.85cm}|p{4.0cm}|p{0.75cm}|p{1.45cm}|p{1.45cm}|p{1.4cm}|p{4.0cm}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Código EDT} & \textbf{Actividad} & \textbf{Dur.} & \textbf{Inicio} & \textbf{Fin} & \textbf{Pred.} & \textbf{Ejecución} & \textbf{Entregable} \\ \hline
+2.1 & Modelado de procesos propuestos & 3 d & 27/08/2026 & 31/08/2026 & 1.9 & Paralela con 2.2, 2.3 y 2.4 & Diagramas de procesos propuestos \\ \hline
+2.2 & Diseño de arquitectura del sistema & 3 d & 27/08/2026 & 31/08/2026 & 1.9 & Paralela con 2.1, 2.3 y 2.4 & Diagrama y especificación de arquitectura \\ \hline
+2.3 & Diseño de base de datos & 4 d & 27/08/2026 & 01/09/2026 & 1.9 & Paralela con 2.1, 2.2 y 2.4 & Modelo entidad-relación y esquema lógico PostgreSQL \\ \hline
+2.4 & Diseño de experiencia e interfaz de usuario & 4 d & 27/08/2026 & 01/09/2026 & 1.9 & Paralela con 2.1, 2.2 y 2.3 & Bocetos de interfaz y diseño visual \\ \hline
+2.5 & Diseño de interfaz de programación de aplicaciones, seguridad y permisos & 3 d & 02/09/2026 & 04/09/2026 & 2.2, 2.3 & Paralela con 2.6 & Contratos de interfaz de programación y matriz de roles y permisos \\ \hline
+2.6 & Construcción del prototipo navegable & 4 d & 02/09/2026 & 07/09/2026 & 2.4 & Paralela con 2.5 & Prototipo navegable de RestGest Mateos \\ \hline
+2.7 & Validación del diseño & 2 d & 08/09/2026 & 09/09/2026 & 2.1, 2.5, 2.6 & Secuencial; cierre de Fase 2 y predecesor de Fase 3 & Diseño funcional y técnico validado \\ \hline
+\end{tabularx}
+\end{center}
+\end{landscape}
+
+
+
+
+\begin{landscape}
+\subsection{Fase 3 - Desarrollo del Sistema}
+
+La fase se ejecuta del \textbf{10/09/2026} al \textbf{12/10/2026}, con una duración de \textbf{23 días laborables}. 
+La responsabilidad principal corresponde a Equipo técnico completo, distribuido por especialidad.
+
+\begin{center}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\fontsize{7.2}{8.5}\selectfont
+\begin{tabularx}{\linewidth}{|p{0.85cm}|p{4.0cm}|p{0.75cm}|p{1.45cm}|p{1.45cm}|p{1.4cm}|p{4.0cm}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Código EDT} & \textbf{Actividad} & \textbf{Dur.} & \textbf{Inicio} & \textbf{Fin} & \textbf{Pred.} & \textbf{Ejecución} & \textbf{Entregable} \\ \hline
+3.1 & Configuración del proyecto y entornos & 2 d & 10/09/2026 & 11/09/2026 & 2.7 & Secuencial; habilita desarrollo & Repositorios, entornos y estructura base configurados \\ \hline
+3.2 & Desarrollo de autenticación, usuarios, roles y sucursales & 5 d & 14/09/2026 & 18/09/2026 & 3.1 & Paralela con 3.3 & Módulo funcional de usuarios, roles y sucursales \\ \hline
+3.3 & Desarrollo de productos, menú y conteo rápido & 5 d & 14/09/2026 & 18/09/2026 & 3.1 & Paralela con 3.2 & Módulo funcional de productos, menú y conteo rápido \\ \hline
+3.4 & Desarrollo de ventas & 5 d & 21/09/2026 & 25/09/2026 & 3.2, 3.3 & Paralela con 3.5 & Módulo funcional de ventas e historial \\ \hline
+3.5 & Desarrollo de inventario y alertas & 6 d & 21/09/2026 & 28/09/2026 & 3.2, 3.3 & Paralela con 3.4 & Módulo funcional de inventario y alertas \\ \hline
+3.6 & Desarrollo de gestión de gastos & 4 d & 28/09/2026 & 01/10/2026 & 3.4 & Paralela con 3.7 & Módulo funcional de gastos y categorías \\ \hline
+3.7 & Integración OCR para tickets y notas & 5 d & 28/09/2026 & 02/10/2026 & 3.4 & Paralela con 3.6 & Prototipo funcional de digitalización asistida mediante OCR \\ \hline
+3.8 & Desarrollo de reportes operativos & 6 d & 02/10/2026 & 09/10/2026 & 3.4, 3.5, 3.6 & Paralela con 3.9 & Módulo de reportes de ventas, inventario, gastos y comparación entre sucursales \\ \hline
+3.9 & Desarrollo del panel de control, indicadores y recomendaciones & 5 d & 02/10/2026 & 08/10/2026 & 3.4, 3.5, 3.6 & Paralela con 3.8 & Panel de control administrativo y módulo de indicadores y recomendaciones \\ \hline
+3.10 & Integración completa de módulos & 1 d & 12/10/2026 & 12/10/2026 & 3.7, 3.8, 3.9 & Secuencial; cierre de Fase 3 y predecesor de Fase 4 & Versión integrada de RestGest Mateos \\ \hline
+\end{tabularx}
+\end{center}
+\end{landscape}
+
+
+
+
+\begin{landscape}
+\subsection{Fase 4 - Pruebas y Aseguramiento de la Calidad}
+
+La fase se ejecuta del \textbf{13/10/2026} al \textbf{26/10/2026}, con una duración de \textbf{10 días laborables}. 
+La responsabilidad principal corresponde a Aguilar Guillen Erick Mateo (aseguramiento de la calidad), con apoyo de todo el equipo para correcciones.
+
+\begin{center}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\fontsize{7.2}{8.5}\selectfont
+\begin{tabularx}{\linewidth}{|p{0.85cm}|p{4.0cm}|p{0.75cm}|p{1.45cm}|p{1.45cm}|p{1.4cm}|p{4.0cm}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Código EDT} & \textbf{Actividad} & \textbf{Dur.} & \textbf{Inicio} & \textbf{Fin} & \textbf{Pred.} & \textbf{Ejecución} & \textbf{Entregable} \\ \hline
+4.1 & Elaboración del plan de pruebas & 2 d & 13/10/2026 & 14/10/2026 & 3.10 & Paralela con 4.2 & Plan y matriz de pruebas \\ \hline
+4.2 & Pruebas unitarias y de integración & 4 d & 13/10/2026 & 16/10/2026 & 3.10 & Paralela con 4.1 & Informe de pruebas unitarias e integración \\ \hline
+4.3 & Pruebas funcionales & 3 d & 19/10/2026 & 21/10/2026 & 4.1, 4.2 & Paralela con 4.4 y 4.5 & Matriz e informe de pruebas funcionales \\ \hline
+4.4 & Pruebas de usabilidad, seguridad y rendimiento & 3 d & 19/10/2026 & 21/10/2026 & 4.1, 4.2 & Paralela con 4.3 y 4.5 & Informe de usabilidad, seguridad y rendimiento \\ \hline
+4.5 & Validación técnica del OCR & 2 d & 19/10/2026 & 20/10/2026 & 4.2 & Paralela con 4.3 y 4.4 & Informe de precisión y viabilidad del OCR \\ \hline
+4.6 & Corrección de defectos y pruebas de regresión & 3 d & 22/10/2026 & 26/10/2026 & 4.3, 4.4, 4.5 & Secuencial respecto a resultados de pruebas & Versión candidata para implementación \\ \hline
+4.7 & Aceptación preliminar & 0 d & 26/10/2026 & 26/10/2026 & 4.6 & Hito secuencial; cierre de Fase 4 y predecesor de Fase 5 & Resultado preliminar de aceptación \\ \hline
+\end{tabularx}
+\end{center}
+\end{landscape}
+
+
+
+
+\begin{landscape}
+\subsection{Fase 5 - Implantación y Despliegue}
+
+La fase se ejecuta del \textbf{27/10/2026} al \textbf{02/11/2026}, con una duración de \textbf{5 días laborables}. 
+La responsabilidad principal corresponde a Aguilar Guillen Erick Mateo (operaciones de desarrollo) y Paredes Medina Steven Eduardo (coordinación técnica).
+
+\begin{center}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\fontsize{7.2}{8.5}\selectfont
+\begin{tabularx}{\linewidth}{|p{0.85cm}|p{4.0cm}|p{0.75cm}|p{1.45cm}|p{1.45cm}|p{1.4cm}|p{4.0cm}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Código EDT} & \textbf{Actividad} & \textbf{Dur.} & \textbf{Inicio} & \textbf{Fin} & \textbf{Pred.} & \textbf{Ejecución} & \textbf{Entregable} \\ \hline
+5.1 & Preparación de infraestructura de producción & 2 d & 27/10/2026 & 28/10/2026 & 4.7 & Paralela con 5.2 & Entorno de producción configurado \\ \hline
+5.2 & Configuración y carga de datos iniciales & 2 d & 27/10/2026 & 28/10/2026 & 4.7 & Paralela con 5.1 & Datos maestros y configuración inicial cargados \\ \hline
+5.3 & Capacitación inicial para piloto & 1 d & 29/10/2026 & 29/10/2026 & 5.1, 5.2 & Secuencial & Usuarios piloto capacitados \\ \hline
+5.4 & Implementación piloto en sucursal 2 & 1 d & 30/10/2026 & 30/10/2026 & 5.3 & Secuencial & RestGest Mateos operativo en sucursal 2 \\ \hline
+5.5 & Monitoreo y ajustes del piloto & 1 d & 02/11/2026 & 02/11/2026 & 5.4 & Secuencial & Informe del piloto y versión ajustada \\ \hline
+5.6 & Despliegue definitivo & 0 d & 02/11/2026 & 02/11/2026 & 5.5 & Hito secuencial; cierre de Fase 5 y predecesor de Fase 6 & RestGest Mateos habilitado para las dos sucursales \\ \hline
+\end{tabularx}
+\end{center}
+\end{landscape}
+
+
+
+
+\begin{landscape}
+\subsection{Fase 6 - Capacitación, Documentación y Cierre}
+
+La fase se ejecuta del \textbf{03/11/2026} al \textbf{04/11/2026}, con una duración de \textbf{2 días laborables}. 
+La responsabilidad principal corresponde a Paredes Medina Steven Eduardo (cierre) con participación de los cuatro integrantes.
+
+\begin{center}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\fontsize{7.2}{8.5}\selectfont
+\begin{tabularx}{\linewidth}{|p{0.85cm}|p{4.0cm}|p{0.75cm}|p{1.45cm}|p{1.45cm}|p{1.4cm}|p{4.0cm}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Código EDT} & \textbf{Actividad} & \textbf{Dur.} & \textbf{Inicio} & \textbf{Fin} & \textbf{Pred.} & \textbf{Ejecución} & \textbf{Entregable} \\ \hline
+6.1 & Consolidación de manuales & 1 d & 03/11/2026 & 03/11/2026 & 5.6 & Paralela con 6.2 y 6.3 & Manual operativo y manual administrativo \\ \hline
+6.2 & Entrega de documentación técnica & 1 d & 03/11/2026 & 03/11/2026 & 5.6 & Paralela con 6.1 y 6.3 & Documentación de arquitectura, base de datos y despliegue \\ \hline
+6.3 & Capacitación final & 1 d & 03/11/2026 & 03/11/2026 & 5.6 & Paralela con 6.1 y 6.2 & Registro de capacitación del personal \\ \hline
+6.4 & Validación final y lecciones aprendidas & 1 d & 04/11/2026 & 04/11/2026 & 6.1, 6.2, 6.3 & Secuencial & Informe final de cumplimiento y registro de lecciones aprendidas \\ \hline
+6.5 & Aceptación formal y cierre del proyecto & 0 d & 04/11/2026 & 04/11/2026 & 6.4 & Hito final del proyecto & Acta de aceptación firmada e informe de cierre \\ \hline
+\end{tabularx}
+\end{center}
+\end{landscape}
+
+
+
+\section{Criterios de aceptación y cierre}
+
+La aceptación final se realizará con base en evidencia funcional y documental. Los criterios principales son:
+
+\begin{itemize}
+    \item funcionamiento de las dos sucursales y vistas individuales/consolidadas;
+    \item configuración de menú diario sin modificación de código;
+    \item conteo rápido de almuerzos, proteínas y extras;
+    \item registro e historial de ventas;
+    \item inventario con entradas, salidas, ajustes, niveles mínimos y alertas;
+    \item registro y consulta de gastos por categoría y sucursal;
+    \item reportes de ventas, inventario, gastos y comparación entre sucursales;
+    \item autenticación y permisos conforme al rol;
+    \item resultados satisfactorios de pruebas funcionales, seguridad, usabilidad y rendimiento;
+    \item respaldo/restauración probado;
+    \item reconocimiento óptico de caracteres evaluado y mantenido como apoyo opcional si no cumple la precisión prevista;
+    \item piloto de la sucursal 2 sin defectos críticos bloqueantes;
+    \item documentación técnica, manuales y capacitación completados;
+    \item acta de aceptación formal del producto.
+\end{itemize}
+
+\section{Firmas de responsabilidad}
+
+La elaboración, revisión y aprobación documental se separan para mantener independencia de control.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabularx}{\textwidth}{|p{3cm}|X|p{3cm}|p{2.6cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{ACCIÓN} & \textbf{NOMBRE Y CARGO} & \textbf{FIRMA} & \textbf{FECHA} \\ \hline
+Elaborado por & Paredes Medina Steven Eduardo - Director del Proyecto / Líder Técnico & & 26/08/2026 \\ \hline
+Revisado por & Llerena Garcés Gabriel Stefano - Responsable de Base de Datos y Datos & & 26/08/2026 \\ \hline
+Aprobado por & Ing. Torres Paulo - Docente responsable & & \rule{2.1cm}{0.4pt} \\ \hline
+\end{tabularx}
+\end{center}
+
+\section{Control de cambios}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|c|X|p{4cm}|p{3cm}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Versión} & \textbf{Descripción del cambio} & \textbf{Responsable} & \textbf{Fecha} \\ \hline
+1.0 & Creación inicial del Informe de Planificación del Proyecto RestGest Mateos con línea base de 61 días laborables, EDT, dependencias, recursos, presupuesto máximo de USD 250, calidad, riesgos, comunicaciones y actividades detalladas. & Paredes Medina Steven Eduardo & 26/08/2026 \\ \hline
+\end{tabularx}
+\end{center}
+
+\section{Anexos}
+
+\subsection*{Anexo A. Resumen de la EDT}
+
+La EDT completa se encuentra representada en las tablas de la Sección 9 y en el archivo de Microsoft Project. La jerarquía principal es:
+
+\begin{enumerate}
+    \item Planificación y Análisis de Requisitos.
+    \item Diseño del Sistema.
+    \item Desarrollo del Sistema.
+    \item Pruebas y Aseguramiento de la Calidad.
+    \item Implantación y Despliegue.
+    \item Capacitación, Documentación y Cierre.
+\end{enumerate}
+
+\subsection*{Anexo B. Cadena de control entre fases}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor{tableheader}
+\textbf{Cierre de fase} & \textbf{Habilita} \\ \hline
+1.9 Validación y cierre de requisitos & Fase 2 \\ \hline
+2.7 Validación del diseño & Fase 3 \\ \hline
+3.10 Integración completa de módulos & Fase 4 \\ \hline
+4.7 Aceptación preliminar & Fase 5 \\ \hline
+5.6 Despliegue definitivo & Fase 6 \\ \hline
+6.5 Aceptación formal y cierre & Fin del proyecto \\ \hline
+\end{tabular}
+\end{center}
+
+\subsection*{Anexo C. Archivos de planificación}
+
+\begin{itemize}
+    \item \texttt{RestGest\_Mateos\_MS\_Project.xml}: cronograma compatible con Microsoft Project, con sangrías, hitos y predecesores.
+    \item \texttt{RestGest\_Mateos\_Dependencias.txt}: guía resumida de relaciones paralelas y secuenciales.
+    \item \texttt{Informe\_Planificacion\_RestGest\_Mateos.tex}: código fuente del presente informe.
+\end{itemize}
+
+\end{document}
