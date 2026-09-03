@@ -4,9 +4,11 @@ Base técnica anticipada del sistema web responsive de Restaurante Mateos. Este 
 
 ## Requisitos
 
-- Node.js 24.15 o posterior dentro de la línea 24 LTS.
-- npm 11 o posterior.
+- Node.js 24.19.x. La versión de referencia está fijada en `.node-version`.
+- npm 11.17.x.
 - Docker Desktop con Docker Engine y Docker Compose activos.
+
+El repositorio utiliza npm workspaces para administrar `apps/web` y `apps/api`, con npm 11.17.0 declarado como gestor de referencia en el `package.json` raíz.
 
 ## Estructura
 
@@ -38,9 +40,11 @@ Copie `.env.example` como `.env` para desarrollo local y cambie la contraseña d
 Desde la raíz:
 
 ```bash
-npm install
+npm ci
 npm run prisma:generate --workspace api
 ```
+
+`npm ci` utiliza exclusivamente `package-lock.json`, elimina instalaciones inconsistentes de dependencias y reconstruye el entorno reproduciblemente. Utilice `npm install` solo cuando vaya a modificar dependencias y actualizar el lockfile deliberadamente.
 
 ## PostgreSQL
 
@@ -82,6 +86,8 @@ npm run typecheck
 npm run lint
 npm run test
 ```
+
+Estos mismos comandos se ejecutan automáticamente mediante GitHub Actions en cada `push` a `main` o `develop` y en pull requests dirigidos a cualquiera de esas ramas. Las pruebas unitarias actuales no necesitan PostgreSQL; por ello, CI no inicia un service container innecesario. La URL de base configurada en CI se utiliza únicamente para generar Prisma durante el build y no contiene secretos.
 
 Las pruebas end-to-end de la API requieren PostgreSQL y `DATABASE_URL`:
 
